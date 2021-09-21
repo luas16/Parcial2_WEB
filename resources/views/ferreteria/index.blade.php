@@ -6,7 +6,8 @@
 @if(Session::has('mensaje'))
 {{Session::get('mensaje')}}
 @endif
-lista de productos
+<h1>Lista de productos</h1>
+<br>
 <a href="{{ url('ferreteria/create') }}" class = "btn btn-danger">Ingresar nuevo Producto</a>
 <br>
 <br>
@@ -27,7 +28,7 @@ lista de productos
             <tr>
                 <td>{{ $producto->Codigo}}</td>
                 <td>
-                <img src="{{ asset('storage').'/'.$producto->ImagenProducto }}" alt="" width="100">    
+                <img class = "img-thumbnail img-fluid" src="{{ asset('storage').'/'.$producto->ImagenProducto }}" alt="" width="100">    
                 </td>
                 <td>{{ $producto->NombreProducto}}</td>
                 <td>{{ $producto->Precio}}</td>
@@ -40,7 +41,7 @@ lista de productos
                 <form action="{{ url('/ferreteria/'.$producto->id) }}" class="d-inline" method = "post">
                 @csrf 
                 {{ method_field('DELETE')}}
-                    <input type="submit" value="Borrar" onclick="return confirm('¿Quieres borrar?')">
+                    <input class = "btn btn-warning" type="submit" value="Borrar" onclick="return confirm('¿Quieres borrar?')">
                 </form>
                 </td>
             </tr>
